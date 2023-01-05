@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    font-family: Helvetica, sans-serif;
+}
+
 .main-container {
     height: 100vh;
     display: flex;
@@ -31,13 +35,33 @@
 }
 
 .signup {
-    flex: 2;
     display: flex;
     flex-direction: column;
+    flex: 2;
 }
 
 .header,
 .signup-form,
 .login {
     flex: 1;
+}
+
+.header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #f1f3f1;
+    padding: 40px;
+}
+
+.header h2 {
+    font-size: 1.8rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+}
+
+.header p {
+    font-weight: bold;
+    font-size: 1.6rem;
 }
