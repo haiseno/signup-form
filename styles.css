@@ -19,7 +19,6 @@ body {
     flex: 1;
     background: url(https://images.unsplash.com/photo-1602422054298-3ad8d4f62739?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80) no-repeat center;
     background-size: cover;
-    position: relative;
 }
 
 .banner {
@@ -30,8 +29,7 @@ body {
     height: 20%;
     color: white;
     font-size: 6rem;
-    background-color: black;
-    opacity: .6;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .signup {
@@ -44,6 +42,8 @@ body {
 .signup-form,
 .login {
     flex: 1;
+    padding: 3rem;
+    border: 1px solid red;
 }
 
 .header {
@@ -52,7 +52,6 @@ body {
     justify-content: center;
     align-items: flex-start;
     background-color: #f1f3f1;
-    padding: 40px;
 }
 
 .header h2 {
@@ -64,4 +63,26 @@ body {
 .header p {
     font-weight: bold;
     font-size: 1.6rem;
+}
+
+label {
+    display: block;
+    text-transform: uppercase;
+    margin: 10px 0;
+}
+
+input {
+    appearance: none;
+    width: 80%;
+    height: 45%;
+}
+
+form > [class*="personal"] {
+    display: flex;
+    gap: 2rem;
+}
+
+a, a:visited, a:hover, a:active {
+    text-decoration: none;
+    color: #666;
 }
