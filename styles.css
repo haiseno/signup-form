@@ -2,12 +2,26 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Helvetica, sans-serif;
 }
 
 :root {
-    --background-theme: #f1f3f1;
-    --shadow: 1px 6px 8px 0px #AFAFAF;
+    --background-theme: #000;
+    overflow: hidden;
+}
+
+@font-face {
+    font-family: Glitchy;
+    src: url(/fonts/Anurati-Regular.otf);
+}
+
+@font-face {
+    font-family: Tech;
+    src: url(/fonts/Marske.otf);
+}
+
+@font-face {
+    font-family: Prototype;
+    src: url(/fonts/Prototype.ttf);
 }
 
 .main-container {
@@ -22,8 +36,23 @@
     display: flex;
     align-items: center;
     flex: 1;
-    background: url(https://images.unsplash.com/photo-1503435824048-a799a3a84bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80) no-repeat center;
+    background: url(/images/night-city.png) no-repeat center;
     background-size: cover;
+    position: relative;
+}
+
+.sidebar::after {
+    content: "Cyperpunk 2077 Night City © CD Projekt Red";
+    color: white;
+    font-size: 0.8rem;
+    font-family: Helvetica, sans-serif;
+    font-style: italic;
+    text-align: center;
+    opacity: 0.4;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(102, 102, 102, 0.2);
+    width: 100%;
 }
 
 .banner {
@@ -31,11 +60,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
-    color: white;
     background-color: rgba(0, 0, 0, 0.5);
-    font-size: 4rem;
-    padding: 20px;
-    gap: 2rem;
+    padding: 15px;
+}
+
+.sidebar .banner p {
+    color: white;
+    font-size: 3rem;
+    font-family: Glitchy, Helvetica, sans-serif;
 }
 
 /* Right side of page */
@@ -44,6 +76,8 @@
     display: flex;
     flex-direction: column;
     flex: 2;
+    font-family: Tech, Helvetica, sans-serif;
+    color: white;
 }
 
 .header,
@@ -51,6 +85,7 @@
 .login {
     flex: 1;
     padding: 2.5rem;
+    letter-spacing: 3px;
 }
 
 /* Top header section */
@@ -64,7 +99,7 @@
 }
 
 .header h2 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 .header p {
@@ -73,11 +108,17 @@
     font-weight: bold;
 }
 
+.header p:last-child {
+    color: black;
+}
+
 /* Middle form section */
 
 .signup-form {
     position: relative;
-    box-shadow: var(--shadow);
+    color: #092047;
+    background-color: #fdf800;
+    box-shadow: 1px 1px 8px 1px #fbf665;
 }
 
 .signup-form h2 {
@@ -85,10 +126,8 @@
 }
 
 form {
-    letter-spacing: 2px;
     font-size: 12px;
     font-weight: bold;
-    color: #6a6c6d;
 }
 
 form > [class^="personal"] {
@@ -100,9 +139,12 @@ form > [class^="personal"] {
     margin-right: 50px;
 }
 
+span {
+    font-style: italic;
+}
+
 label {
     display: block;
-    text-transform: uppercase;
     margin-bottom: 10px;
 }
 
@@ -111,16 +153,20 @@ input {
     outline: none;
     height: 32px;
     width: 100%;
+    color: white;
     font-size: 1rem;
+    font-family: Prototype, Helvetica, sans-serif;
     border: 1px solid #E5E7EB;
-    border-radius: 3px;
+    border-radius: 5px;
+    border-style: none;
     padding: 8px;
     margin-bottom: 20px;
+    background-color: black;
 }
 
 input:focus {
-    border: 1px solid #2B65EC;
-    box-shadow: var(--shadow);
+    border: 2px solid #04d9ff;
+    box-shadow: 3px 2px 8px 0px #6a7e6a;
 }
 
 /* Bottom create/login section */
@@ -133,14 +179,16 @@ button {
     width: 200px;
     height: 50px;
     padding: 10px;
+    margin-bottom: 30px;
     border-radius: 8px;
     border-style: none;
+    font-family: Tech, Helvetica, sans-serif;
     color: white;
     font-size: 1rem;
     font-weight: bold;
-    background-color: #596D48;
-    box-shadow: var(--shadow);
-    margin-bottom: 30px;
+    letter-spacing: 4px;
+    background-color: #FF2A6D;
+    box-shadow: 2px 2px 8px 1px #FF2A6D;
 }
 
 label:hover,
@@ -154,7 +202,7 @@ button:hover {
 
 a {
     text-decoration: none;
-    color: #596D48;
+    color: #FF2A6D;
     font-weight: bold;
 }
 
@@ -163,5 +211,5 @@ a:hover {
 }
 
 a:active {
-    color: #B87333;
+    color: #b3093e;
 }
