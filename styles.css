@@ -2,22 +2,27 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Helvetica, sans-serif;
 }
 
-body {
-    font-family: Helvetica, sans-serif;
+:root {
+    --background-theme: #f1f3f1;
+    --shadow: 1px 6px 8px 0px #AFAFAF;
 }
 
 .main-container {
     height: 100vh;
+    width: 100vw;
     display: flex;
 }
+
+/* Sidebar and banner */
 
 .sidebar {
     display: flex;
     align-items: center;
     flex: 1;
-    background: url(https://images.unsplash.com/photo-1602422054298-3ad8d4f62739?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80) no-repeat center;
+    background: url(https://images.unsplash.com/photo-1503435824048-a799a3a84bf7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80) no-repeat center;
     background-size: cover;
 }
 
@@ -25,12 +30,15 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex: 1;
-    height: 20%;
+    width: 100%;
     color: white;
-    font-size: 6rem;
     background-color: rgba(0, 0, 0, 0.5);
+    font-size: 4rem;
+    padding: 20px;
+    gap: 2rem;
 }
+
+/* Right side of page */
 
 .signup {
     display: flex;
@@ -42,47 +50,118 @@ body {
 .signup-form,
 .login {
     flex: 1;
-    padding: 3rem;
-    border: 1px solid red;
+    padding: 2.5rem;
 }
+
+/* Top header section */
 
 .header {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: flex-start;
-    background-color: #f1f3f1;
+    background-color: var(--background-theme);
+    gap: 1rem;
 }
 
 .header h2 {
-    font-size: 1.8rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 2rem;
 }
 
 .header p {
+    font-size: 1.5rem;
+    line-height: 1.5;
     font-weight: bold;
-    font-size: 1.6rem;
+}
+
+/* Middle form section */
+
+.signup-form {
+    position: relative;
+    box-shadow: var(--shadow);
+}
+
+.signup-form h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    letter-spacing: 2px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #6a6c6d;
+}
+
+form > [class^="personal"] {
+    display: flex;
+}
+
+[class*="personal"] > div {
+    width: min(400px, 80%);
+    margin-right: 50px;
 }
 
 label {
     display: block;
     text-transform: uppercase;
-    margin: 10px 0;
+    margin-bottom: 10px;
 }
 
 input {
     appearance: none;
-    width: 80%;
-    height: 45%;
+    outline: none;
+    height: 32px;
+    width: 100%;
+    font-size: 1rem;
+    border: 1px solid #E5E7EB;
+    border-radius: 3px;
+    padding: 8px;
+    margin-bottom: 20px;
 }
 
-form > [class*="personal"] {
-    display: flex;
-    gap: 2rem;
+input:focus {
+    border: 1px solid #2B65EC;
+    box-shadow: var(--shadow);
 }
 
-a, a:visited, a:hover, a:active {
+/* Bottom create/login section */
+
+.login {
+    background-color: var(--background-theme);
+}
+
+button {
+    width: 200px;
+    height: 50px;
+    padding: 10px;
+    border-radius: 8px;
+    border-style: none;
+    color: white;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #596D48;
+    box-shadow: var(--shadow);
+    margin-bottom: 30px;
+}
+
+label:hover,
+button:hover {
+    cursor: pointer;
+}
+
+.login p {
+    font-size: 1.1rem;
+}
+
+a {
     text-decoration: none;
-    color: #666;
+    color: #596D48;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    color: #B87333;
 }
