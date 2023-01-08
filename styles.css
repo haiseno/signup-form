@@ -11,17 +11,17 @@
 
 @font-face {
     font-family: Glitchy;
-    src: url(/fonts/Anurati-Regular.otf);
+    src: url("/fonts/Anurati-Regular.otf");
 }
 
 @font-face {
     font-family: Tech;
-    src: url(/fonts/Marske.otf);
+    src: url("/fonts/Marske.otf");
 }
 
 @font-face {
     font-family: Prototype;
-    src: url(/fonts/Prototype.ttf);
+    src: url("/fonts/Prototype.ttf");
 }
 
 .main-container {
@@ -36,7 +36,7 @@
     display: flex;
     align-items: center;
     flex: 1;
-    background: url(/images/night-city.png) no-repeat center;
+    background: url("/images/night-city.png") no-repeat center;
     background-size: cover;
     position: relative;
 }
