@@ -121,7 +121,7 @@
     box-shadow: 1px 1px 8px 1px #fbf665;
 }
 
-.signup-form p {
+.signup-form h2 + p {
     font-size: 10px;
     font-weight: bold;
     margin-bottom: 20px;
@@ -179,13 +179,16 @@ input + span::after {
     opacity: 0;
 }
 
-input:not(:focus):not(:placeholder-shown):valid + span::after {
+[id^="form"]:not(:focus):not(:placeholder-shown):valid + span::after,
+.confirmed:not(:focus):not(:placeholder-shown) + span::after,
+.matchReq + span::after {
     opacity: 1;
     color: #0A7029;
     transition: opacity 0.5s ease-in-out;
 }
 
-input:not(:focus):not(:placeholder-shown):invalid + span::after {
+[id^="form"]:not(:focus):not(:placeholder-shown):invalid + span::after,
+.not-confirmed:not(:focus):not(:placeholder-shown) + span::after {
     font-family: "Material Icons";
     content: "highlight_off";
     color: #DC143C;
@@ -200,7 +203,22 @@ input:focus {
 
 #password-constraints {
     font-size: 10px;
+    font-weight: bold;
     line-height: 1.5;
+}
+
+ul {
+    color: #808080;
+    font-size: 10px;
+}
+
+li {
+    list-style-position: inside;
+    transition: color 0.3s ease-in-out;
+}
+
+.password-valid {
+    color: #0A7029;
 }
 
 /* Bottom create/login section */
