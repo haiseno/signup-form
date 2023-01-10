@@ -180,20 +180,19 @@ input + span::after {
 }
 
 [id^="form"]:not(:focus):not(:placeholder-shown):valid + span::after,
-.confirmed:not(:focus):not(:placeholder-shown) + span::after,
-.matchReq + span::after {
+.isValid:not(:focus):not(:placeholder-shown) + span::after {
     opacity: 1;
     color: #0A7029;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
 
 [id^="form"]:not(:focus):not(:placeholder-shown):invalid + span::after,
-.not-confirmed:not(:focus):not(:placeholder-shown) + span::after {
+.isInvalid:not(:focus):not(:placeholder-shown) + span::after {
     font-family: "Material Icons";
     content: "highlight_off";
     color: #DC143C;
     opacity: 1;
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
 
 input:focus {
@@ -214,7 +213,20 @@ ul {
 
 li {
     list-style-position: inside;
-    transition: color 0.3s ease-in-out;
+    transition: color 0.5s ease-in-out;
+}
+
+li::after {
+    font-family: "Material Icons";
+    content: "done";
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+}
+
+.list-valid::after {
+    opacity: 1;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .password-valid {

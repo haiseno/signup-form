@@ -41,55 +41,55 @@ function passwordCheck() {
     
     //Minimum length of 8
     if (password.length >= 8) {
-        minimumLengthReq.classList.add("password-valid");
+        minimumLengthReq.classList.add("password-valid", "list-valid");
     }
     else {
-        minimumLengthReq.classList.remove("password-valid");
+        minimumLengthReq.classList.remove("password-valid", "list-valid");
     }
 
     //Contains at least one uppercase
     if (uppercase.test(password)) {
-        uppercaseReq.classList.add("password-valid");
+        uppercaseReq.classList.add("password-valid", "list-valid");
     }
     else {
-        uppercaseReq.classList.remove("password-valid");
+        uppercaseReq.classList.remove("password-valid", "list-valid");
     }
 
     //Contains at least one lowercase
     if (lowercase.test(password)) {
-        lowercaseReq.classList.add("password-valid");
+        lowercaseReq.classList.add("password-valid", "list-valid");
     }
     else {
-        lowercaseReq.classList.remove("password-valid");
+        lowercaseReq.classList.remove("password-valid", "list-valid");
     }
 
     //Contains at least one number
     if (number.test(password)) {
-        numberReq.classList.add("password-valid");
+        numberReq.classList.add("password-valid", "list-valid");
     }
     else {
-        numberReq.classList.remove("password-valid");
+        numberReq.classList.remove("password-valid", "list-valid");
     }
 
     //Contains at least one special character
     if (special.test(password)) {
-        specialReq.classList.add("password-valid");
+        specialReq.classList.add("password-valid", "list-valid");
     }
     else {
-        specialReq.classList.remove("password-valid");
+        specialReq.classList.remove("password-valid", "list-valid");
     }
 }
 
-//Checks if passwords match
+//Check if confirm password match
 function confirmPasswordCheck() {
     confirmPassword = confirmPass.value;
     
     if (password === confirmPassword) {
-        confirmPass.classList.remove("not-confirmed");
-        confirmPass.classList.add("confirmed");
+        confirmPass.classList.remove("isInvalid");
+        confirmPass.classList.add("isValid");
     }
     else {
-        confirmPass.classList.remove("confirmed");
-        confirmPass.classList.add("not-confirmed");
+        confirmPass.classList.remove("isValid");
+        confirmPass.classList.add("isInvalid");
     }
 }
