@@ -19,7 +19,7 @@
                 </div>
             </div>
 
-            <div class="signup">
+            <div class="main">
                 <section class="header">
                     <h2>Welcome to PROJECT: OVERRIDE</h2>
                     <p>Your humanity ends here.</p>
@@ -30,19 +30,22 @@
 
                 <section class="signup-form">
                     <h2>Let's begin.</h2>
-                    <p>All fields are required.</p>
+                    <p>All fields are required*</p>
+
                     <form action="#" method="get" id="information" spellcheck="false">
                         <div class="personal-name">
                             <div>
                                 <label for="form-first-name">First Name</label>
                                 <input type="text" id="form-first-name" name="first-name" required placeholder=" " maxlength="18">
-                                <span></span>
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                             
                             <div>
                                 <label for="form-last-name">Last Name</label>
                                 <input type="text" id="form-last-name" name="last-name" required placeholder=" " maxlength="18">
-                                <span></span>
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                         </div>
 
@@ -50,12 +53,14 @@
                             <div>
                                 <label for="form-email">Email</label>
                                 <input type="email" id="form-email" name="email" required placeholder=" ">
-                                <span></span>
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                             <div>
                                 <label for="form-username">Username</label>
                                 <input type="text" id="form-username" name="username" required placeholder=" " minlength="4" maxlength="16">
-                                <span></span>
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                         </div>
 
@@ -63,25 +68,28 @@
                             <div>
                                 <label for="form-password">Password</label>
                                 <input type="password" id="form-password" name="password" required placeholder=" " pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" aria-describedby="password-constraints">
-                                <span></span>
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                             <div>
                                 <label for="confirm-password">Confirm Password</label>
-                                <input type="password" id="confirm-password" name="password" required placeholder=" " pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" aria-describedby="password-constraints">
-                                <span></span>
+                                <input type="password" id="form-confirm-password" name="password" required placeholder=" " pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" aria-describedby="password-constraints">
+                                <span class="valid"></span>
+                                <span class="invalid"></span>
                             </div>
                         </div>
-                        <div class="password-container">
-                            <p id="password-constraints">Password must be eight or more characters in length with a mix of letters, numbers and symbols.</p>
-                            <ul class="password-reqs">
-                                <li class="minimum-length">Minimum 8 characters</li>
-                                <li class="uppercase">At least one uppercase character</li>
-                                <li class="lowercase">At least one lowercase character</li>
-                                <li class="number">At least one number</li>
-                                <li class="special">At least one special character</li>
-                            </ul>
-                        </div>
                     </form>
+
+                    <div class="password-container">
+                        <p id="password-constraints">Password must be eight or more characters in length with a mix of letters, numbers and symbols.</p>
+                        <ul>
+                            <li id="length">Minimum 8 characters</li>
+                            <li id="uppercase">At least one uppercase character</li>
+                            <li id="lowercase">At least one lowercase character</li>
+                            <li id="number">At least one number</li>
+                            <li id="special">At least one special character</li>
+                        </ul>
+                    </div>
                 </section>
 
                 <section class="login">

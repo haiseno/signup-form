@@ -1,11 +1,54 @@
-const pass = document.querySelector("#form-password");
-const confirmPass = document.querySelector("#confirm-password");
+const inputs = document.querySelectorAll("input");
+const listItems = document.querySelectorAll(".password-container li");
 
-const minimumLengthReq = document.querySelector(".minimum-length");
-const uppercaseReq = document.querySelector(".uppercase");
-const lowercaseReq = document.querySelector(".lowercase");
-const numberReq = document.querySelector(".number");
-const specialReq = document.querySelector(".special");
+inputs.forEach(input => input.addEventListener("focus", checkValidity));
+
+function checkValidity(e) {
+    //Grab onto the input DOM element
+    const inputElement = e.composedPath()[0];
+
+    switch (inputElement.id) {
+        case "form-first-name":
+        case "form-last-name":
+        case "form-email":
+        case "form-username":
+        case "form-password":
+        case "form-confirm-password":
+            inputElement.addEventListener("blur", validity);
+            if (userInteract) {
+                inputElement.addEventListener("input", validity);
+            }
+            inputElement.addEventListener("input", passwordCheck);
+            inputElement.addEventListener("input", confirmPasswordCheck);
+            break;
+    }
+}
+
+let userInteract;
+
+function validity(e) {
+    const inputElement = e.composedPath()[0];
+
+    if (inputElement.value !== "") {
+        userInteract = true;
+    }
+    else {
+        userInteract = false;
+        inputElement.classList.remove("validity", "invalidity");
+        inputElement.removeEventListener("input", validity);
+    }
+
+    if (userInteract) {
+        if (inputElement.checkValidity()) {
+            inputElement.classList.remove("invalidity");
+            inputElement.classList.add("validity");
+        }
+        else {
+            inputElement.classList.add("invalidity");
+            inputElement.classList.remove("validity");
+        }
+    }
+}
 
 let password;
 let confirmPassword;
@@ -15,81 +58,49 @@ const lowercase = /(?=.*[a-z])/;
 const number = /(?=.*\d)/;
 const special = /(?=.*[@$!%*?&])/;
 
-pass.addEventListener("input", passwordCheck);
-confirmPass.addEventListener("input", confirmPasswordCheck);
+//Password requirements validation visual CSS
+function passwordCheck(e) {
+    const inputElement = e.composedPath()[0];
 
-pass.addEventListener("keypress", (e) => {
-    //Prevent spaces from being entered
-    let key = e.code;
-    if (key === "Space") {
-        e.preventDefault();
+    if (inputElement.id !== "form-password") {
+        return;
     }
-});
 
-confirmPass.addEventListener("keypress", (e) => {
-    //Prevent spaces from being entered
-    let key = e.code;
-    if (key === "Space") {
-        e.preventDefault();
-    }
-});
-
-//Password validation CSS
-function passwordCheck() {
     //Store password input in a string for RegEx match
-    password = pass.value;
-    
-    //Minimum length of 8
-    if (password.length >= 8) {
-        minimumLengthReq.classList.add("password-valid", "list-valid");
-    }
-    else {
-        minimumLengthReq.classList.remove("password-valid", "list-valid");
-    }
+    password = inputElement.value;
 
-    //Contains at least one uppercase
-    if (uppercase.test(password)) {
-        uppercaseReq.classList.add("password-valid", "list-valid");
-    }
-    else {
-        uppercaseReq.classList.remove("password-valid", "list-valid");
-    }
-
-    //Contains at least one lowercase
-    if (lowercase.test(password)) {
-        lowercaseReq.classList.add("password-valid", "list-valid");
-    }
-    else {
-        lowercaseReq.classList.remove("password-valid", "list-valid");
-    }
-
-    //Contains at least one number
-    if (number.test(password)) {
-        numberReq.classList.add("password-valid", "list-valid");
-    }
-    else {
-        numberReq.classList.remove("password-valid", "list-valid");
-    }
-
-    //Contains at least one special character
-    if (special.test(password)) {
-        specialReq.classList.add("password-valid", "list-valid");
-    }
-    else {
-        specialReq.classList.remove("password-valid", "list-valid");
-    }
+    //Toggles live visual indicator for when password requirements are met
+    listItems.forEach(listItem => {
+        switch (listItem.id) {
+            case "length":
+                if (password.length >= 8) {
+                    listItem.classList.add("password-valid");
+                }
+                else {
+                    listItem.classList.remove("password-valid");
+                }
+                break;
+            case "uppercase":
+                togglePasswordValidation(uppercase, listItem);
+                break;
+            case "lowercase":
+                togglePasswordValidation(lowercase, listItem);
+                break;
+            case "number":
+                togglePasswordValidation(number, listItem);
+                break;
+            case "special":
+                togglePasswordValidation(special, listItem);
+                break;
+        }
+    });
 }
 
-//Check if confirm password match
-function confirmPasswordCheck() {
-    confirmPassword = confirmPass.value;
-    
-    if (password === confirmPassword) {
-        confirmPass.classList.remove("isInvalid");
-        confirmPass.classList.add("isValid");
+function togglePasswordValidation(pattern, listItem) {
+    if (pattern.test(password)) {
+        listItem.classList.add("password-valid");
     }
     else {
-        confirmPass.classList.remove("isValid");
-        confirmPass.classList.add("isInvalid");
+        listItem.classList.remove("password-valid");
     }
 }
