@@ -42,7 +42,7 @@
 }
 
 .sidebar::after {
-    content: "Cyperpunk 2077 Night City © CD Projekt Red";
+    content: "Cyberpunk 2077 Night City © CD Projekt Red";
     color: white;
     font-family: Helvetica, sans-serif;
     font-size: 0.8rem;
